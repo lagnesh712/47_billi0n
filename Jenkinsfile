@@ -16,10 +16,5 @@ pipeline {
                shd 'docker push lagnesh712/47billionimg:latest'
             }
         }
-    stage('push image') {
-            steps { 
-               shd 'docker push lagnesh712/47billionimg:latest'
-            }
-        }
     }
 }
