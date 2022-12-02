@@ -24,11 +24,11 @@ jobs:
           context: .
           file: ./dockerfile
           push: true
-          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/flaskgit:latest
-          cache-from: type=registry,ref=${{ secrets.DOCKER_HUB_USERNAME }}/flaskgit:buildcache
-          cache-to: type=registry,ref=${{ secrets.DOCKER_HUB_USERNAME }}/flaskgit:buildcache,mode=max
+          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/47_billion:latest
+          cache-from: type=registry,ref=${{ secrets.DOCKER_HUB_USERNAME }}/47_billion:buildcache
+          cache-to: type=registry,ref=${{ secrets.DOCKER_HUB_USERNAME }}/47_billion:buildcache,mode=max
       - name: Run
-        run: docker run -d --name mycontainer -p 5000:5000 lagnesh712/flaskgit
+        run: docker run -d --name mycontainer -p 5000:5000 lagnesh712/47_billion
       - name: docker ps
         run: docker ps 
       - name: docker logs
