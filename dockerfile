@@ -8,7 +8,7 @@ RUN mkdir myapp
 
 WORKDIR myapp
 
-EXPOSE 5000
+EXPOSE 7000
 
 COPY . .
 
