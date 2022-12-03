@@ -11,9 +11,14 @@ pipeline {
                shd 'docker tag 47billionimg lagnesh712/47billionimg:latest'
             }
         }
-    stage('push image') {
+    stage('create deploy image') {
             steps { 
-               shd 'docker push lagnesh712/47billionimg:latest'
+               shd 'kubectl apply -f deploy_app.yml'
+            }
+        }
+    stage('create svc') {
+            steps { 
+               shd 'kubectl apply -f service.yml'
             }
         }
     }

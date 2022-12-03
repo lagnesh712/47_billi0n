@@ -12,4 +12,4 @@ EXPOSE 7000
 
 COPY . .
 
-CMD [ "python3", "flaskapp.py"]
+CMD [ "python3", "47_billion.py"]

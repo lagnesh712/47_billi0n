@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
       - name: flaskcontainer
-        image: lagnesh712/flaskapp:latest
+        image: lagnesh712/47billionimg:latest
         ports:
         - containerPort: 7000
