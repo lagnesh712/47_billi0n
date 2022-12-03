@@ -45,7 +45,7 @@ jobs:
       - name: deploying on cluster
         run: sh kubectl.sh
       - name: put pods on wait
-        run: sleep 12
+        run: sleep 30
       - name: checking sccessfull deployment
         run: kubectl get all
 
