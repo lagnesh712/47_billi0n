@@ -6,11 +6,11 @@ pipeline {
                 sh 'docker build -t 47billionimg .' 
             }
         }
-    stage('tag image') {
-            steps { 
-               shd 'docker tag 47billionimg lagnesh712/47billionimg:latest'
-            }
-        }
+    // stage('tag image') {
+    //         steps { 
+    //            shd 'docker tag 47billionimg lagnesh712/47billionimg:latest'
+    //         }
+    //     }
     stage('create deploy image') {
             steps { 
                shd 'kubectl apply -f deploy_app.yml'
