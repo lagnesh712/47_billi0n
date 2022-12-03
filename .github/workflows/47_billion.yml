@@ -44,6 +44,8 @@ jobs:
         run: minikube start
       - name: deploying on cluster
         run: sh kubectl.sh
+      - name: put pods on wait
+        run: sleep 12
       - name: checking sccessfull deployment
         run: kubectl get all
 
