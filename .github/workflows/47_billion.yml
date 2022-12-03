@@ -45,7 +45,7 @@ jobs:
       - name: deploying on cluster
         run: sh kubectl.sh
       - name: checking sccessfull deployment
-        run: kubectl get pods
+        run: kubectl get all
 
 
 
