@@ -40,7 +40,7 @@ jobs:
         run: pip install pytest
       - name: api testing
         run: python3 api_test.py
-      - name: api testing
+      - name: minikube testing
         run: minikube start
 
 
