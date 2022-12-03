@@ -14,8 +14,8 @@ jobs:
       - name: Login to Docker Hub
         uses: docker/login-action@v2
         with:
-          username: ${{ secrets.DOCKER_HUB_USERNAME }}
-          password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
       - name: Build and push
@@ -24,11 +24,11 @@ jobs:
           context: .
           file: ./dockerfile
           push: true
-          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/47_billion:latest
-          cache-from: type=registry,ref=${{ secrets.DOCKER_HUB_USERNAME }}/47_billion:buildcache
-          cache-to: type=registry,ref=${{ secrets.DOCKER_HUB_USERNAME }}/47_billion:buildcache,mode=max
+          tags: ${{ secrets.DOCKER_USERNAME }}/47_billion:latest
+          cache-from: type=registry,ref=${{ secrets.DOCKER_USERNAME }}/47_billion:buildcache
+          cache-to: type=registry,ref=${{ secrets.DOCKER_USERNAME }}/47_billion:buildcache,mode=max
       - name: Run
-        run: docker run -d --name mycontainer -p 5000:5000 lagnesh712/47_billion
+        run: docker run -d --name mycontainer -p 7000:7000 lagnesh712/47_billion
       - name: docker ps
         run: docker ps 
       - name: docker logs
@@ -40,34 +40,34 @@ jobs:
         run: pip install pytest
       - name: api testing
         run: python3 api_test.py
-  job2:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-      - name: Login to Docker Hub
-        uses: docker/login-action@v2
-        with:
-          username: ${{ secrets.DOCKER_HUB_USERNAME }}
-          password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
-      - name: docker build 
-        run: docker build -t flaskappgit .
-      - name: docker tag
-        run: docker tag flaskappgit ${{ secrets.DOCKER_HUB_USERNAME }}/flaskappgit
-      - name: echo command
-        run: docker push ${{ secrets.DOCKER_HUB_USERNAME }}/flaskappgit
-      - name: echo command
-        run: echo "Test comment"
-      - name: Run
-        run: docker run -d --name mycontainer -p 5000:5000 lagnesh712/flaskappgit
-      - name: docker ps
-        run: docker ps 
-      - name: docker logs
-        run: |
-          docker logs mycontainer
-          sleep 30
-          docker ps 
-      - name: installing pytest
-        run: pip install pytest
-      - name: api testing
-        run: python3 api_test.py
+  # job2:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Checkout
+  #       uses: actions/checkout@v3
+  #     - name: Login to Docker Hub
+  #       uses: docker/login-action@v2
+  #       with:
+  #         username: ${{ secrets.DOCKER_HUB_USERNAME }}
+  #         password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
+  #     - name: docker build 
+  #       run: docker build -t flaskappgit .
+  #     - name: docker tag
+  #       run: docker tag flaskappgit ${{ secrets.DOCKER_HUB_USERNAME }}/flaskappgit
+  #     - name: echo command
+  #       run: docker push ${{ secrets.DOCKER_HUB_USERNAME }}/flaskappgit
+  #     - name: echo command
+  #       run: echo "Test comment"
+  #     - name: Run
+  #       run: docker run -d --name mycontainer -p 5000:5000 lagnesh712/flaskappgit
+  #     - name: docker ps
+  #       run: docker ps 
+  #     - name: docker logs
+  #       run: |
+  #         docker logs mycontainer
+  #         sleep 30
+  #         docker ps 
+  #     - name: installing pytest
+  #       run: pip install pytest
+  #     - name: api testing
+  #       run: python3 api_test.py
