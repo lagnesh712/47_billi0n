@@ -1,7 +1,7 @@
 kind: Service
 apiVersion: v1 
 metadata:
-  name: 47-svc
+  name: npsvc
 spec:
   selector:
     name: flask-app
