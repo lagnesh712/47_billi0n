@@ -40,6 +40,13 @@ jobs:
         run: pip install pytest
       - name: api testing
         run: python3 api_test.py
+      - name: api testing
+        run: minikube start
+
+
+
+
+
   # job2:
   #   runs-on: ubuntu-latest
   #   steps:
