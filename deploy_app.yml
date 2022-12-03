@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: flaskcontainer
-        image: lagnesh712/47billionimg:latest
+        image: lagnesh712/47billion:latest
         command: ["/bin/bash", "-c", "sleep 15000"]
         ports:
           - containerPort: 7000
