@@ -47,35 +47,3 @@ jobs:
 
 
 
-
-  # job2:
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - name: Checkout
-  #       uses: actions/checkout@v3
-  #     - name: Login to Docker Hub
-  #       uses: docker/login-action@v2
-  #       with:
-  #         username: ${{ secrets.DOCKER_HUB_USERNAME }}
-  #         password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
-  #     - name: docker build 
-  #       run: docker build -t flaskappgit .
-  #     - name: docker tag
-  #       run: docker tag flaskappgit ${{ secrets.DOCKER_HUB_USERNAME }}/flaskappgit
-  #     - name: echo command
-  #       run: docker push ${{ secrets.DOCKER_HUB_USERNAME }}/flaskappgit
-  #     - name: echo command
-  #       run: echo "Test comment"
-  #     - name: Run
-  #       run: docker run -d --name mycontainer -p 5000:5000 lagnesh712/flaskappgit
-  #     - name: docker ps
-  #       run: docker ps 
-  #     - name: docker logs
-  #       run: |
-  #         docker logs mycontainer
-  #         sleep 30
-  #         docker ps 
-  #     - name: installing pytest
-  #       run: pip install pytest
-  #     - name: api testing
-  #       run: python3 api_test.py
