@@ -13,8 +13,8 @@ spec:
         app: flask-app
     spec:
       containers:
-      - name: flaskcontainer
+      - name: flask-app 
+        imagePullPolicy: Always
         image: lagnesh712/47_billion:latest
-        command: ["/bin/bash", "-c", "sleep 15000"]
         ports:
           - containerPort: 7000
